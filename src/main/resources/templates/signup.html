@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>SignUp!!</title>
+</head>
+<body>
+<!--<form name="f" th:action="@{/login}" method="post">-->
+<!--  <fieldset>-->
+<!--    <div th:if="${param.error}" class="ui-icon-alert">Invalid username or Password</div>-->
+<!--    <div th:if="${param.logout}" class="ui-icon-close">You have been log out</div>-->
+<!--    <label for="username">Username</label>-->
+<!--    <input type="text" id="username" name="username"/>-->
+<!--    <label for="password">Password</label>-->
+<!--    <input type="password" id="password" name="password"/>-->
+<!--    <div><button type="submit"> Log In</button></div>-->
+<!--  </fieldset>-->
+<!--</form>-->
+  <div><fieldset><label><a th:href="@{/login}">Back to Login</a></label></fieldset></div>
+<br>
+<h1 class="flex-box">Sign Up</h1>
+<form th:action="@{/signup}"  method="post">
+  <fieldset>
+  <div id="success-msg" th:if="${signupSuccess}" class="ui-icon-alert" >
+    You successfully signed up! Please continue to the <a th:href="@{/login}">Login</a>
+<div id="error-msg" th:if="${signupError}" class="ui-icon-alert">
+ Something bad happens!Try again!! <span th:text="${signupError}"></span>
+</div>
+  </div>
+  <label for="username">Username</label>
+  <input type="text" name="username" id="username" placeholder="Enter username" required/>
+  <label for="password">Password</label>
+  <input type="password"  id="password" name="password" placeholder="Enter password" required/>
+  <div><button type="submit">Sign Up</button></div>
+  </fieldset>
+</form>
+</body>
+</html>

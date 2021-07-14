@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chat!!</title>
+</head>
+<body>
+    <form th:object="${chatForm}" action="#" th:action="@{/chat}" method="post">
+      <fieldset>
+      <label for="messageText">Enter your message:</label>
+      <input id="messageText" type="text" th:field="*{message}">
+      <button type="submit">Send</button>
+      </fieldset>
+    </form>
+    <fieldset>
+      <div th:each="chatMessage:${chatMessages}">
+        <span th:text="${chatMessage.username}">Username</span>:<span th:text="${chatMessage.messagetext}">HelloWorld</span>
+      </div>
+    </fieldset>
+    <div> <label> Want to logout-><a th:href="@{/logout}">Click Here!</a></label></div>
+</body>
+</html>
